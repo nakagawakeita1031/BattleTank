@@ -18,7 +18,7 @@ public class EnemyShotShell : MonoBehaviour
     {
         interval += 1;
 
-        if (interval % 60 == 0)
+        if (interval % 800 == 0)
         {
             GameObject enemyShell = Instantiate(enemyShellPrefab, transform.position, Quaternion.identity);
 

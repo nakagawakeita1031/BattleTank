@@ -21,6 +21,8 @@ public class ShotShell : MonoBehaviour
 
     private float timer;
 
+    public int shotCount;
+
     // Update is called once per frame
     void Update()
     {
@@ -30,8 +32,11 @@ public class ShotShell : MonoBehaviour
         // もしもSpaceキーを押したならば（条件）
         // 「Space」の部分を変更することで他のキーにすることができる（ポイント）
         //もしSpaceキーを入力した場合
-        if (Input.GetKeyDown(KeyCode.Space) && timer > timeBettweenShot)
+        if (Input.GetKeyDown(KeyCode.Space) && timer > timeBettweenShot && shotCount > 0)
         {
+            //ショットカウントを-1する
+            shotCount -= 1;
+
             // タイマーの時間を０に戻す。
             timer = 0.0f;
 

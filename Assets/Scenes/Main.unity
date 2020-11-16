@@ -543,6 +543,7 @@ MonoBehaviour:
   shellPrefab: {fileID: 1509032564683822734, guid: 4b6284ac2a09a5a4ba72132f76e8fe38,
     type: 3}
   shotSound: {fileID: 8300000, guid: f3312fbd86633344da726055bff16cbe, type: 3}
+  shotCount: 10
 --- !u!4 &337123034
 Transform:
   m_ObjectHideFlags: 0

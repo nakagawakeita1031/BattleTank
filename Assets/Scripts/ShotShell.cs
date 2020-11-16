@@ -11,21 +11,30 @@ public class ShotShell : MonoBehaviour
     //SerializeField←データ構造やオブジェクトの状態を、保存・再構築できるようなフォーマットに変換する
     //shellPrefab変数にGameObject型の情報を代入
     [SerializeField]
-    private GameObject shellPrefab;
+    private GameObject shellPrefab = null;
 
     //shotSound変数に音を鳴らすファイルをアサインできる情報を代入する
     [SerializeField]
-    private AudioClip shotSound;
+    private AudioClip shotSound = null;
 
+    private float timeBettweenShot = 0.75f;
+
+    private float timer;
 
     // Update is called once per frame
     void Update()
     {
+        // タイマーの時間を動かす
+        timer += Time.deltaTime;
+
         // もしもSpaceキーを押したならば（条件）
         // 「Space」の部分を変更することで他のキーにすることができる（ポイント）
         //もしSpaceキーを入力した場合
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && timer > timeBettweenShot)
         {
+            // タイマーの時間を０に戻す。
+            timer = 0.0f;
+
             // 砲弾のプレハブを実体化（インスタンス化）する。
             //GameObject型のshell変数に引数で生成したクローンを戻り値Shellに代入する
             GameObject shell = Instantiate(shellPrefab, transform.position, Quaternion.identity);

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ShotShell : MonoBehaviour
 {
@@ -23,6 +24,15 @@ public class ShotShell : MonoBehaviour
 
     public int shotCount;
 
+    [SerializeField]
+    private Text shellLabel;
+
+    // Startの「S」は大文字なので注意！
+    void Start()
+    {
+        shellLabel.text = "砲弾：" + shotCount;
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -36,6 +46,9 @@ public class ShotShell : MonoBehaviour
         {
             //ショットカウントを-1する
             shotCount -= 1;
+
+            shellLabel.text = "砲弾：" + shotCount;
+
 
             // タイマーの時間を０に戻す。
             timer = 0.0f;

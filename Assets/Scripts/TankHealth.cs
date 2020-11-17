@@ -19,8 +19,12 @@ public class TankHealth : MonoBehaviour
     [SerializeField]
     private Text HPLabel;
 
+    public int tankMaxHP = 5;
+
     private void Start()
     {
+        tankHP = tankMaxHP;
+
         HPLabel.text = "HP:" + tankHP;
     }
 
@@ -65,5 +69,19 @@ public class TankHealth : MonoBehaviour
     void GoToGameOver()
     {
         SceneManager.LoadScene("GameOver");
+    }
+
+    // publicをつけること（重要ポイント）
+    public void AddHP(int amount)
+    {
+        tankHP += amount;
+
+        // ここは何をコントロールしている考えてみましょう！
+        if (tankHP > tankMaxHP)
+        {
+            tankHP = tankMaxHP;
+        }
+
+        HPLabel.text = "HP:" + tankHP;
     }
 }

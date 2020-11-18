@@ -15,6 +15,11 @@ public class DestroyObject : MonoBehaviour
     private GameObject effectPrefab2; // 2種類目のエフェクトを入れるための箱
     public int objectHP;
 
+    [SerializeField]
+    //ゲームオブジェクト型itemPrefab変数
+    private GameObject itemPrefab;
+
+
     // このメソッドはぶつかった瞬間に呼び出される
     //Collider型のオブジェクトに衝突が検出されると呼び出される
     private void OnTriggerEnter(Collider other)
@@ -51,6 +56,13 @@ public class DestroyObject : MonoBehaviour
                 // otherがどこと繋がっているか考えてみよう！
                 //ゲームオブジェクト(この場合ShotShell)を破棄する
                 Destroy(this.gameObject);
+
+                // （ポイント）pos.y + 0.6fの部分でアイテムの出現場所の『高さ』を調整しています。
+                //Vector3クラスのposにオブジェクトのポジションを代入
+                Vector3 pos = transform.position;
+                //ItemPrefabのクローンを破壊されたオブジェクトのx位置、高さ0.1f、奥行z位置にて回転させずに生成する
+                Instantiate(itemPrefab, new Vector3(pos.x, pos.y + 0.1f, pos.z), Quaternion.identity);
+
             }
         }
     }

@@ -20,6 +20,17 @@ public class DestroyObject : MonoBehaviour
     //ゲームオブジェクト型の箱にitemPrefab変数分用意する
     private GameObject[] itemPrefabs;
 
+    [SerializeField]
+    //int型scoreValue変数
+    private int scoreValue;//これが敵を倒すと得られる点数になる
+    //ScoreManagerクラスのsm変数
+    private ScoreManager sm;
+
+    private void Start()
+    {
+        // 「ScoreLabelオブジェクト」に付いている「ScoreManagerスクリプト」の情報を取得して「sm」の箱に入れる。
+        sm = GameObject.Find("ScoreLabel").GetComponent<ScoreManager>();
+    }
 
     // このメソッドはぶつかった瞬間に呼び出される
     //Collider型のオブジェクトに衝突が検出されると呼び出される
@@ -73,7 +84,8 @@ public class DestroyObject : MonoBehaviour
                     Instantiate(itemPrefabs[itemNumber], new Vector3(pos.x, pos.y + 0.1f, pos.z), Quaternion.identity);
                 }
 
-                
+                //sm変数のAddScoreメソッドのscoreValueを表示
+                sm.AddScore(scoreValue);
 
             }
         }

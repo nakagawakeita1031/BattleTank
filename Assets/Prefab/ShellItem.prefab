@@ -109,5 +109,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   getSound: {fileID: 8300000, guid: add0f6abe569ae84c950e5aa961e02d7, type: 3}
-  effectPrefab: {fileID: 1314945738539566, guid: 32c9fd11a72259d45aa26ae41c34c5aa,
+  effectPrefab: {fileID: 1000011210275196, guid: 61a6b3a108030e54ba372fe7097916d0,
     type: 3}

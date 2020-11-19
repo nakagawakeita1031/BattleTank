@@ -2145,8 +2145,10 @@ MonoBehaviour:
   effectPrefab2: {fileID: 1121192042590650, guid: e1b08032bec16ba4eb1ae23cbd572664,
     type: 3}
   objectHP: 2
-  itemPrefab: {fileID: 6372890398657450555, guid: 814f95b3d62cba24480a193c2582a6f0,
-    type: 3}
+  itemPrefabs:
+  - {fileID: 6372890398657450555, guid: 814f95b3d62cba24480a193c2582a6f0, type: 3}
+  - {fileID: 4172807243266881189, guid: b6d38f834625d844f9cc28c915d5222c, type: 3}
+  - {fileID: 2020643892660776374, guid: 297b81330cff44644ae215168e552d04, type: 3}
 --- !u!65 &1212017480
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2293,7 +2295,7 @@ MonoBehaviour:
   effectPrefab2: {fileID: 1121192042590650, guid: e1b08032bec16ba4eb1ae23cbd572664,
     type: 3}
   objectHP: 2
-  itemPrefab: {fileID: 0}
+  itemPrefabs: []
 --- !u!1 &1300833968
 GameObject:
   m_ObjectHideFlags: 0
@@ -2538,8 +2540,10 @@ MonoBehaviour:
   effectPrefab2: {fileID: 1121192042590650, guid: e1b08032bec16ba4eb1ae23cbd572664,
     type: 3}
   objectHP: 2
-  itemPrefab: {fileID: 6372890398657450555, guid: 814f95b3d62cba24480a193c2582a6f0,
-    type: 3}
+  itemPrefabs:
+  - {fileID: 6372890398657450555, guid: 814f95b3d62cba24480a193c2582a6f0, type: 3}
+  - {fileID: 4172807243266881189, guid: b6d38f834625d844f9cc28c915d5222c, type: 3}
+  - {fileID: 2020643892660776374, guid: 297b81330cff44644ae215168e552d04, type: 3}
 --- !u!65 &1366321173
 BoxCollider:
   m_ObjectHideFlags: 0

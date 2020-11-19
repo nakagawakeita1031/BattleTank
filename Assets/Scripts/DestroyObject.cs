@@ -16,8 +16,9 @@ public class DestroyObject : MonoBehaviour
     public int objectHP;
 
     [SerializeField]
-    //ゲームオブジェクト型itemPrefab変数
-    private GameObject itemPrefab;
+    //古いコメント。ゲームオブジェクト型itemPrefab変数
+    //ゲームオブジェクト型の箱にitemPrefab変数分用意する
+    private GameObject[] itemPrefabs;
 
 
     // このメソッドはぶつかった瞬間に呼び出される
@@ -57,11 +58,22 @@ public class DestroyObject : MonoBehaviour
                 //ゲームオブジェクト(この場合ShotShell)を破棄する
                 Destroy(this.gameObject);
 
+                //int型itemNumber変数に0からitemPrefabsの数をランダムに決めるメソッドを代入
+                int itemNumber = Random.Range(0, itemPrefabs.Length);
+
                 // （ポイント）pos.y + 0.6fの部分でアイテムの出現場所の『高さ』を調整しています。
                 //Vector3クラスのposにオブジェクトのポジションを代入
                 Vector3 pos = transform.position;
-                //ItemPrefabのクローンを破壊されたオブジェクトのx位置、高さ0.1f、奥行z位置にて回転させずに生成する
-                Instantiate(itemPrefab, new Vector3(pos.x, pos.y + 0.1f, pos.z), Quaternion.identity);
+
+                //もしitemPrefabsの数が0では無ければ
+                if (itemPrefabs.Length != 0)
+                {
+                    //古いコメント。ItemPrefabのクローンを破壊されたオブジェクトのx位置、高さ0.1f、奥行z位置にて回転させずに生成する
+                    //ランダムに選んだitemPrefabsのクローンを破壊されたオブジェクトのx位置、高さ0.1f、奥行z位置にて回転させずに生成する
+                    Instantiate(itemPrefabs[itemNumber], new Vector3(pos.x, pos.y + 0.1f, pos.z), Quaternion.identity);
+                }
+
+                
 
             }
         }

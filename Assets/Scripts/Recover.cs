@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// 
+/// タンクの位置を戻す
 /// </summary>
 public class Recover : MonoBehaviour
 {

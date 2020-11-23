@@ -28,6 +28,8 @@ public class CameraController : MonoBehaviour
     //AudioListener型のFPSListener変数
     private AudioListener FPSListener;
 
+    [SerializeField]
+    private GameObject aimImage;
 
     void Start()
     {
@@ -40,6 +42,9 @@ public class CameraController : MonoBehaviour
         mainListener.enabled = true; // オンにする
         //FPSListenerのenabledをfalsreにする
         FPSListener.enabled = false; // オフにする
+
+        //aimImageのFPSCameraがオンの時だけ表示する
+        aimImage.SetActive(true);
     }
 
     void Update()
@@ -61,6 +66,9 @@ public class CameraController : MonoBehaviour
             mainListener.enabled = false; // オフにする
             FPSListener.enabled = true; // オンにする
 
+            //aimImageのFPSCameraがオンの時だけ表示する
+            aimImage.SetActive(true);
+
         } 
         // もしも「Cボタン」を押した時、「かつ」、「mainCameraON」のステータスが「false」の時（条件）
         else if (Input.GetKeyDown(KeyCode.C) && mainCameraON == false)
@@ -75,6 +83,9 @@ public class CameraController : MonoBehaviour
 
             mainListener.enabled = true; // オンにする
             FPSListener.enabled = false; // オフにする
+
+            //aimImageを表示しない
+            aimImage.SetActive(false);
         }
     }
 }

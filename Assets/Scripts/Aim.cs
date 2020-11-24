@@ -18,7 +18,7 @@ public class Aim : MonoBehaviour
        
         //レーザー光を可視化することができる
         //Drawray関数で①発生位置、②z方向に60距離、③描写する色は緑を出力する
-        Debug.DrawRay(transform.position, transform.forward * 60, Color.green);
+        Debug.DrawRay(transform.position, transform.forward * 60, Color.green, 5);
 
         // rayのあたり判定の情報を入れる箱を作る。
         //ｒayが衝突したコライダの情報を取得する。

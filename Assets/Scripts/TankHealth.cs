@@ -21,8 +21,15 @@ public class TankHealth : MonoBehaviour
 
     public int tankMaxHP = 5;
 
+    [SerializeField]
+    private GameObject[] targets;
+
+    public int EnemyCounts;
+
     private void Start()
     {
+        targets = GameObject.FindGameObjectsWithTag("Enemy");
+        EnemyCounts = targets.Length;
         tankHP = tankMaxHP;
 
         HPLabel.text = "HP:" + tankHP;
@@ -83,5 +90,13 @@ public class TankHealth : MonoBehaviour
         }
 
         HPLabel.text = "HP:" + tankHP;
+    }
+
+    private void Update()
+    {
+        if (EnemyCounts == 0)
+        {
+            SceneManager.LoadScene("Clear");
+        }
     }
 }

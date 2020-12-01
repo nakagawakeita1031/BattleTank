@@ -26,10 +26,17 @@ public class DestroyObject : MonoBehaviour
     //ScoreManagerクラスのsm変数
     private ScoreManager sm;
 
+    public GameObject ue;
+
+
+
     private void Start()
     {
         // 「ScoreLabelオブジェクト」に付いている「ScoreManagerスクリプト」の情報を取得して「sm」の箱に入れる。
         sm = GameObject.Find("ScoreLabel").GetComponent<ScoreManager>();
+        //タンクヘルスのスクリプトを取得する
+        ue = GameObject.Find("Tank");
+
     }
 
     // このメソッドはぶつかった瞬間に呼び出される
@@ -87,7 +94,9 @@ public class DestroyObject : MonoBehaviour
                 //sm変数のAddScoreメソッドのscoreValueを表示
                 sm.AddScore(scoreValue);
 
+                ue.GetComponent<TankHealth>().EnemyCounts--;
             }
         }
     }
+
 }
